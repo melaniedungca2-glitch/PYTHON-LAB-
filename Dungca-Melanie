@@ -1,0 +1,367 @@
+# =====================================
+#              PYTHON LAB
+# =====================================
+
+student_name = ""
+quiz_scores = []
+
+# LESSON CONTENTS
+lessons = {
+    "PRELIMS - PYTHON BASICS": [
+        ("Introduction to Programming",
+         "Programming gives instructions to a computer.\n"
+         "Python is a high-level programming language known for its simple and readable syntax.\n\n"
+         "Python was created by Guido van Rossum and first released in 1991.\n\n"
+         "Example:\nprint('Hello World')"),
+        ("Python Basic Syntax",
+         "Syntax means the rules for writing code.\nPython is case-sensitive.\nIndentation means spaces at the beginning of a line.\n\nExample:\nprint('Welcome to Python')"),
+        ("Printing Output",
+         "The print() statement displays information.\n\nExample:\nprint('Hello Python')\nprint(100)\n\nOutput:\nHello Python\n100"),
+        ("Python Comments",
+         "Comments are notes that Python does not execute.\nUse # to write a comment.\n\nExample:\n# This is a comment\nprint('Hello')"),
+        ("Variables, Constants and Data Types",
+         "Variables store information.\nA constant is intended to remain unchanged.\n\nint - whole numbers\nfloat - decimal numbers\nstr - text\nbool - True or False\n\nExample:\nname = 'Melanie'\nage = 19"),
+        ("Arithmetic Operators and Expressions",
+         "Arithmetic operators:\n+ Addition\n- Subtraction\n* Multiplication\n/ Division\n% Modulus\n** Exponent\n// Floor Division\n\nExample:\nanswer = 10 + 5\nprint(answer)\nOutput: 15"),
+        ("Basic Input and Output",
+         "input() lets users enter information.\n\nExample:\nname = input('Enter your name: ')\nprint('Hello', name)\n\nInput is stored as a string by default. Use int() or float() to convert numbers.")
+    ],
+    "MIDTERMS - DECISION MAKING": [
+        ("Conditional Statements",
+         "Conditional statements allow a program to make decisions based on conditions."),
+        ("Relational Operators",
+         "Relational operators compare two values.\n\n== Equal to\n!= Not equal to\n> Greater than\n< Less than\n>= Greater than or equal to\n<= Less than or equal to"),
+        ("If Statement",
+         "An if statement runs code when a condition is True.\n\nExample:\nage = 18\n\nif age >= 18:\n    print('Adult')"),
+        ("If-Else Statement",
+         "An if-else statement provides two possible results.\n\nExample:\nscore = 80\n\nif score >= 75:\n    print('Passed')\nelse:\n    print('Failed')"),
+        ("If-Elif-Else Statement",
+         "elif checks another condition.\n\nExample:\nscore = 90\n\nif score >= 90:\n    print('Excellent')\nelif score >= 75:\n    print('Passed')\nelse:\n    print('Failed')"),
+        ("Nested Conditions",
+         "Nested conditions are conditions inside another condition.\n\nExample:\nage = 20\n\nif age >= 18:\n    if age <= 60:\n        print('Allowed')"),
+        ("Logical Operators",
+         "Logical operators combine or change conditions.\n\nand - Both conditions must be True.\nor - At least one condition must be True.\nnot - Reverses the result.\n\nExample:\nage = 20\nif age >= 18 and age <= 30:\n    print('Qualified')")
+    ],
+    "FINALS - LOOPS AND ITERATION": [
+        ("Introduction to Iteration and Loops",
+         "Iteration means repeating instructions.\nLoops repeat code without writing the same instructions many times."),
+        ("Types of Loops",
+         "Python has two main types of loops:\n\n1. For Loop\n2. While Loop"),
+        ("For Loop",
+         "A for loop repeats instructions for each item in a sequence.\n\nExample:\nfor number in range(5):\n    print(number)"),
+        ("Range Function",
+         "range() creates a sequence of numbers.\n\nExample:\nfor number in range(1, 6):\n    print(number)\n\nOutput:\n1\n2\n3\n4\n5"),
+        ("Counting Up and Down",
+         "Counting up:\nfor number in range(1, 6):\n    print(number)\n\nCounting down:\nfor number in range(5, 0, -1):\n    print(number)"),
+        ("While Loop",
+         "A while loop repeats while a condition is True.\n\nExample:\ncount = 1\n\nwhile count <= 5:\n    print(count)\n    count += 1"),
+        ("Repeating Programs",
+         "A loop can repeat a task until a condition becomes False.\n\nExample:\ncount = 1\n\nwhile count <= 3:\n    print('Welcome!')\n    count += 1"),
+        ("Practical Loop Exercises",
+         "Loops can be used for counting numbers, repeating messages, creating number patterns, and repeating program menus.")
+    ]
+}
+
+# QUIZ QUESTIONS
+quiz_questions = {
+    "PRELIMS": [
+        ("What is Python?", ["A. Programming language", "B. Browser", "C. Computer", "D. Game"], "A"),
+        ("Who created Python?", ["A. Bill Gates", "B. Guido van Rossum", "C. Steve Jobs", "D. Mark Zuckerberg"], "B"),
+        ("Which function displays output?", ["A. input()", "B. print()", "C. int()", "D. type()"], "B"),
+        ("Which symbol starts a comment?", ["A. @", "B. //", "C. #", "D. $"], "C"),
+        ("Which data type stores whole numbers?", ["A. str", "B. int", "C. float", "D. bool"], "B"),
+        ("What is 10 + 5?", ["A. 15", "B. 5", "C. 50", "D. 20"], "A")
+    ],
+    "MIDTERMS": [
+        ("What is the purpose of an if statement?", ["A. Repeat code", "B. Make decisions", "C. Print text", "D. Store data"], "B"),
+        ("Which operator means equal to?", ["A. =", "B. !=", "C. ==", "D. >"], "C"),
+        ("Which keyword checks another condition?", ["A. elif", "B. print", "C. input", "D. range"], "A"),
+        ("Which operator requires both conditions to be True?", ["A. or", "B. not", "C. and", "D. if"], "C")
+    ],
+    "FINALS": [
+        ("What is iteration?", ["A. Repeating instructions", "B. Deleting code", "C. Printing text", "D. Storing data"], "A"),
+        ("What are the two main types of loops?", ["A. If and Else", "B. For and While", "C. Print and Input", "D. And and Or"], "B"),
+        ("Which function creates a number sequence?", ["A. print()", "B. input()", "C. range()", "D. type()"], "C"),
+        ("Which loop runs while a condition is True?", ["A. If", "B. For only", "C. While", "D. Else"], "C")
+    ]
+}
+
+# CODING PRACTICE
+practice_tasks = {
+    "PRINTING OUTPUT": ("Display Hello Python!", "print('Hello Python!')"),
+    "VARIABLES": ("Create a variable named age with a value of 19.", "age = 19\nprint(age)"),
+    "ARITHMETIC": ("Add 10 and 5.", "print(10 + 5)"),
+    "CONDITIONS": ("Check if age is 18 or above.", "age = 19\nif age >= 18:\n    print('Adult')"),
+    "LOOPS": ("Display numbers from 1 to 5.", "for number in range(1, 6):\n    print(number)")
+}
+
+# DEBUGGING CHALLENGES
+debug_questions = [
+    ("print('Hello World'", "Missing closing parenthesis"),
+    ("age = 18\nif age >= 18\n    print('Adult')", "Missing colon after the condition"),
+    ("for number in range(5)\n    print(number)", "Missing colon after range(5)")
+]
+
+# GUESS THE OUTPUT
+prediction_questions = [
+    ("print(5 + 5)", "10"),
+    ("print('Hello')", "Hello"),
+    ("print(10 * 2)", "20"),
+    ("for x in range(3):\n    print(x)", "0\n1\n2")
+]
+
+
+# FUNCTIONS
+def pause():
+    input("\nPress Enter to continue...")
+
+
+def show_header(title):
+    print("\n" + "=" * 45)
+    print(title.center(45))
+    print("=" * 45)
+
+
+def get_choice(prompt, minimum, maximum):
+    while True:
+        answer = input(prompt).strip()
+        if answer.isdigit():
+            answer = int(answer)
+            if minimum <= answer <= maximum:
+                return answer
+        print("Invalid choice. Please enter a number from",
+              minimum, "to", maximum, ".")
+
+
+# PYTHON TUTORIALS
+def show_tutorials():
+    categories = list(lessons.keys())
+
+    while True:
+        show_header("PYTHON TUTORIALS")
+        for number, category in enumerate(categories, 1):
+            print(number, ".", category)
+        print(len(categories) + 1, ". Back to Main Menu")
+
+        choice = get_choice("\nChoose a category: ", 1, len(categories) + 1)
+        if choice == len(categories) + 1:
+            return
+
+        category = categories[choice - 1]
+        lesson_list = lessons[category]
+
+        while True:
+            show_header(category)
+            for number, lesson in enumerate(lesson_list, 1):
+                print(number, ".", lesson[0])
+            print(len(lesson_list) + 1, ". Back to Categories")
+
+            lesson_choice = get_choice("\nChoose a lesson: ", 1, len(lesson_list) + 1)
+            if lesson_choice == len(lesson_list) + 1:
+                break
+
+            lesson_name, lesson_text = lesson_list[lesson_choice - 1]
+            show_header(lesson_name)
+            print(lesson_text)
+            pause()
+
+
+# QUIZ CENTER
+def start_quiz(category):
+    questions = quiz_questions[category]
+    score = 0
+
+    show_header(category + " QUIZ")
+    print("Answer each question using A, B, C, or D.")
+
+    for number, question in enumerate(questions, 1):
+        question_text, choices, correct_answer = question
+        print("\nQuestion", number, "of", len(questions))
+        print(question_text)
+
+        for choice in choices:
+            print(choice)
+
+        answer = input("Your answer: ").strip().upper()
+        while answer not in ["A", "B", "C", "D"]:
+            print("Please enter A, B, C, or D.")
+            answer = input("Your answer: ").strip().upper()
+
+        if answer == correct_answer:
+            print("Correct answer!")
+            score += 1
+        else:
+            print("Incorrect! Correct answer:", correct_answer)
+
+    total = len(questions)
+    quiz_scores.append({
+        "name": student_name,
+        "category": category,
+        "score": score,
+        "total": total
+    })
+
+    show_header("QUIZ COMPLETED")
+    print("Student:", student_name)
+    print("Category:", category)
+    print("Your Score:", score, "/", total)
+    pause()
+
+
+def show_quiz_center():
+    categories = list(quiz_questions.keys())
+
+    while True:
+        show_header("QUIZ CENTER")
+        for number, category in enumerate(categories, 1):
+            print(number, ".", category, "QUIZ")
+        print(len(categories) + 1, ". Back to Main Menu")
+
+        choice = get_choice("\nChoose a quiz: ", 1, len(categories) + 1)
+        if choice == len(categories) + 1:
+            return
+        start_quiz(categories[choice - 1])
+
+
+# CODING PRACTICE
+def show_coding_practice():
+    tasks = list(practice_tasks.keys())
+
+    while True:
+        show_header("CODING PRACTICE")
+        for number, task in enumerate(tasks, 1):
+            print(number, ".", task)
+        print(len(tasks) + 1, ". Back to Main Menu")
+
+        choice = get_choice("\nChoose an activity: ", 1, len(tasks) + 1)
+        if choice == len(tasks) + 1:
+            return
+
+        task = tasks[choice - 1]
+        instruction, example = practice_tasks[task]
+        show_header(task)
+        print("Activity:", instruction)
+        print("\nTry writing your answer in your Python editor.")
+        pause()
+        print("\nExample Answer:\n")
+        print(example)
+        pause()
+
+
+# DEBUGGING CHALLENGES
+def show_debugging_challenges():
+    while True:
+        show_header("DEBUGGING CHALLENGES")
+        print("Find the error in each code example.\n")
+
+        for number, item in enumerate(debug_questions, 1):
+            print(number, ".")
+            print(item[0], "\n")
+
+        print(len(debug_questions) + 1, ". Back to Main Menu")
+        choice = get_choice("\nChoose a challenge: ", 1, len(debug_questions) + 1)
+
+        if choice == len(debug_questions) + 1:
+            return
+
+        code, answer = debug_questions[choice - 1]
+        show_header("DEBUGGING CHALLENGE")
+        print("Code with an error:\n")
+        print(code)
+        pause()
+        print("\nCorrect explanation:", answer)
+        pause()
+
+
+# GUESS THE OUTPUT
+def show_guess_the_output():
+    for number, question in enumerate(prediction_questions, 1):
+        code, correct_output = question
+        show_header("GUESS THE OUTPUT")
+        print("Question", number, "of", len(prediction_questions))
+        print("\nWhat will this code display?\n")
+        print(code)
+
+        answer = input("\nYour predicted output: ").strip()
+        if answer == correct_output:
+            print("\nCorrect!")
+        else:
+            print("\nNot quite. Correct output:")
+            print(correct_output)
+        pause()
+
+    show_header("ACTIVITY COMPLETED")
+    print("You finished all Guess the Output questions!")
+    pause()
+
+
+# MY PROGRESS
+def show_progress():
+    show_header("MY PROGRESS")
+    print("Student:", student_name)
+
+    if len(quiz_scores) == 0:
+        print("\nNo quiz records yet. Take a quiz first!")
+    else:
+        print("\nQUIZ RECORDS")
+        for record in quiz_scores:
+            print(record["category"], ":",
+                  record["score"], "/", record["total"])
+
+        total_score = sum(record["score"] for record in quiz_scores)
+        total_items = sum(record["total"] for record in quiz_scores)
+        print("\nOverall Score:", total_score, "/", total_items)
+
+    print("\nNote: Progress is saved only while this program is running.")
+    pause()
+
+
+# MAIN MENU
+def show_main_menu():
+    while True:
+        show_header("PYTHON LAB")
+        print("\nWelcome,", student_name + "!")
+        print("\n[1] Python Tutorials")
+        print("[2] Quiz Center")
+        print("[3] Coding Practice")
+        print("[4] Debugging Challenge")
+        print("[5] Guess the Output")
+        print("[6] My Progress")
+        print("[7] Exit")
+
+        choice = get_choice("\nEnter your choice: ", 1, 7)
+
+        if choice == 1:
+            show_tutorials()
+        elif choice == 2:
+            show_quiz_center()
+        elif choice == 3:
+            show_coding_practice()
+        elif choice == 4:
+            show_debugging_challenges()
+        elif choice == 5:
+            show_guess_the_output()
+        elif choice == 6:
+            show_progress()
+        elif choice == 7:
+            show_header("EXIT PYTHON LAB")
+            print("Thank you for using Python Lab,", student_name + "!")
+            print("Keep learning and keep coding!")
+            break
+
+
+# RUN PROGRAM
+def main():
+    global student_name
+
+    show_header("WELCOME TO PYTHON LAB")
+    student_name = input("\nEnter your name to begin: ").strip()
+
+    while student_name == "":
+        print("Name cannot be empty.")
+        student_name = input("Please enter your name: ").strip()
+
+    show_main_menu()
+
+
+main()
